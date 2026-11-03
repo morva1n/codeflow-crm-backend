@@ -1,16 +1,12 @@
+import express from 'express'
+import dotenv from 'dotenv'
 
-interface King{
-    name: string,
-    surname: string,
-    age: number
-}
+dotenv.config()
+const app = express();
 
 
-const man: King = {
-    name: 'Roman',
-    surname: "Shimanskyi",
-    age: 12
+app.use(express.json())
 
-}
-
-console.log(man.name)
+app.listen(process.env.PORT, () =>{
+    console.log(`Server is running at ${process.env.PORT} port`)
+})
